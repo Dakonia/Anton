@@ -1,0 +1,220 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+#game {
+  position: relative;
+  width: 700px;
+  height: 300px;
+  overflow: hidden;
+  border: 2px solid #ccc;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  width: 700px;
+  height: 100%;
+  background: url('../media/back2.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+#background1 {
+  left: 0;
+  animation: moveBackground1 10s linear infinite;
+}
+
+#background2 {
+  left: 700px;
+  animation: moveBackground2 10s linear infinite;
+}
+
+@keyframes moveBackground1 {
+  0% { left: 0; }
+  100% { left: -700px; }
+}
+
+@keyframes moveBackground2 {
+  0% { left: 700px; }
+  100% { left: 0; }
+}
+
+#trex {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  width: 80px;
+  height: 80px;
+  background: url('../media/bear.png') no-repeat center center; 
+  background-size: cover;
+}
+
+#particles {
+  position: absolute;
+  bottom: 0;
+  left: 30px; 
+  pointer-events: none; 
+  z-index: 2; 
+}
+
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #f39c12; 
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleAnimation 500ms ease-out forwards;
+}
+
+@keyframes particleAnimation {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.cactus {
+  position: absolute;
+  bottom: -15px;
+  width: 50px;
+  height: 80px;
+  background-size: cover;
+}
+
+.cactus1 {
+  background: url('../media/grib2.png') no-repeat center center; 
+  background-size: cover;
+}
+
+.cactus2 {
+  background: url('../media/grib1.png') no-repeat center center; 
+  background-size: cover;
+}
+
+#score, #level, #highScore {
+  position: absolute;
+  top: 10px;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  z-index: 1001;
+}
+
+#score { left: 10px; }
+#level { left: 100px; }
+#highScore { right: 10px; }
+
+#gameOver {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#gameOver.hidden {
+  display: none;
+}
+
+#spaceEnemy {
+  position: absolute;
+  bottom: -15px;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: url('../media/ship.png') no-repeat center center;
+  background-size: cover;
+}
+
+.bullet {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: url('../media/fire.png');
+  background-size: cover;
+}
+
+#levelUpMessage {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+#levelUpMessage.show {
+  opacity: 1;
+}
+
+#spaceship {
+  position: absolute;
+  top: 10px; 
+  left: -100px; 
+  width: 100px;
+  height: 80px;
+  background: url('../media/spaceship.png');
+  background-size: cover;
+  z-index: 999; 
+  animation: spaceshipAnimation 10s linear infinite;
+}
+
+@keyframes spaceshipAnimation {
+  from {
+      left: -100px;
+  }
+  to {
+      left: 800px; 
+  }
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+.game-over {
+  margin: 0;
+  font-size: 2rem;
+}
+
+#gameOver button {
+  margin-top: 30px;
+  background-color: #ff0000;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#gameOver button:hover {
+  background-color: #cc0000;
+}
