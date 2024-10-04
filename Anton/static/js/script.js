@@ -265,3 +265,7 @@ highScoreDisplay.textContent = "Лучший результат: " + highScore;
 
 startGame();
 increaseDifficulty();
+
+
+
+

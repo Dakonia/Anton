@@ -1,0 +1,511 @@
+@font-face {
+    font-family: Lora;
+    src: url(../font/Lora-Medium.ttf);
+}
+@font-face {
+    font-family: Lora-bold;
+    src: url(../font/Lora-SemiBold.ttf);
+}
+@font-face {
+    font-family: Snobel;
+    src: url(../font/Shnobel-Regular.ttf);
+}
+@font-face {
+    font-family: Pixel;
+    src: url(../font/MultiTypePixel\ Regular.otf);
+}
+/* Главный экран */
+
+.menu-block{
+    width: 1200px;
+    height: 600px;
+    border: 2px solid #D60011;
+    margin-left: 110px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden; 
+}
+.menu-logo-bear{
+    position: absolute;
+    margin-left: 500px;
+    margin-top: 115px;
+}
+.but-menu-block{
+    z-index: 1;
+    position: absolute;
+    margin-left: 460px;
+    margin-top: 250px;
+    display: grid;
+    gap: 20px;
+
+}
+.but-menu-block button{
+    width: 228px;
+    height: 58px;
+    background-color: #D60011;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 24px;
+    font-family: Snobel;
+    cursor: pointer;
+}
+
+.menu-left-bear{
+    position: absolute;
+    right: -180px;
+    bottom: -5px;
+}
+.menu-left-bear img{
+    width: 675px;
+    height: 489px;
+}
+
+/* Меню управления */
+
+.menu-control{
+    display: none;
+    width: 1200px;
+    height: 600px;
+    border: 2px solid #D60011;
+    margin-left: 110px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden; 
+}
+.control-text{
+    font-family: Snobel;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 50px;
+}
+.central-control{
+    margin-left: 300px;
+    margin-top: 100px;
+    display: flex;
+    gap: 200px;
+}
+.control-red-but{
+    display: grid;
+    gap: 20px;
+}
+.control-red-but button{
+    border: none;
+    background-color: #D60011;
+    width: 228px;
+    height: 42px;
+    border-radius: 10px;
+    font-family: Snobel;
+    color: white;
+    font-size: 16px
+}
+.contol-red-text{
+    display: grid;
+    gap: 30px;
+    font-size: 16px;
+    font-family: Lora-bold;
+}
+.control-boot-but{
+    display: flex;
+    gap: 150px;
+    margin-top: 60px;
+    margin-left: 300px;
+}
+
+.control-boot-but button{
+    width: 228px;
+    height: 58px;
+    background-color: #D60011;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-family: Snobel;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Старт уровня */
+
+.start-windows{
+    display: none;
+    width: 1200px;
+    height: 600px;
+    border: 2px solid #D60011;
+    margin-left: 110px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+}
+.start-windows-img{
+    position: absolute;
+    left: 440px;
+    top: 50px;
+    z-index: 2;
+}
+.start-windows-modal{
+    border: 1px solid #D60011;
+    width: 337px;
+    height: 173px;
+    position: absolute;
+    border-radius: 5px;
+    text-align: center;
+    left: 405px;
+    top: 240px;
+    z-index: 1;
+}
+.start-windows-modal-text1{
+    font-size: 29px;
+    font-family: Pixel;
+    color: #D60011;
+    margin-top: 50px;
+    
+}
+.start-windows-modal-text2{
+    font-family: Pixel;
+    color: #5A5A8E;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+
+/* Вопрос */
+.end-game{
+    display: none;
+    width: 1200px;
+    height: 600px;
+    border: 2px solid #D60011;
+    margin-left: 110px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+    background: url(../media/game/back-quest.png);
+}
+.first-question{
+    position: absolute;
+    background: url(../media/game/Union.svg);
+    background-size: cover;
+    width: 615px;
+    height: 220px;
+    top: 150px;
+    left: 200px;
+}
+.first-question-text1{
+    font-family: Snobel;
+    font-size: 41px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.first-question-text2{
+    font-family: Lora;
+    font-family: 21px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.quest-bear{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.quest-bear img{
+    width: 350px;
+    height: 600px;
+}
+.first-question-but{
+    position: absolute;
+    bottom: 140px;
+    left: 200px;
+    display: flex;
+    gap: 30px;
+}
+.first-question-but button{
+    width: 264px;
+    height: 53px;
+    border-radius: 10px;
+    border: 2px solid #D60011;
+    background-color: white;
+    font-family: Snobel;
+    color: #D60011;
+    font-size: 24px;
+    cursor: pointer;
+}
+/* Правильный ответ */
+.true-qwest{
+    display: none;
+    width: 1200px;
+    height: 600px;
+    border: 2px solid #D60011;
+    margin-left: 110px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+    background: url(../media/game/back-quest.png);
+}
+
+.false-qwest{
+    display: none;
+    width: 1200px;
+    height: 600px;
+    border: 2px solid #D60011;
+    margin-left: 110px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+    background: url(../media/game/back-quest.png);
+}
+.true-qwest-mod{
+    background: url(../media/game/Union-2.svg);
+    position: absolute;
+    background-size: cover;
+    width: 615px;
+    height: 140px;
+    top: 200px;
+    left: 200px;
+}
+.true-qwest-mod-text1{
+    font-family: Snobel;
+    font-size: 41px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.true-qwest-mod-text2{
+    font-family: Lora;
+    font-family: 21px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.true-qwest-img{
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+}
+.true-qwest-img img{
+    width: 550px;
+    height: 500px;
+}
+.false-qwest-img{
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+}
+.false-qwest-img img{
+    width: 550px;
+    height: 500px;
+}
+
+/* Финальная сцена */
+.final-game1{
+    display: none;
+    width: 1200px;
+    height: 600px;
+    border: 2px solid #D60011;
+    margin-left: 110px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+    background: url(../media/game/final1.svg);
+    background-size: cover;
+}
+.final-game1-frame{
+    background: url(../media/game/Union3.svg);
+    position: absolute;
+    width: 392px;
+    height: 209px;
+    bottom: 30px;
+    left: 50px;
+}
+.final-game1-text1{
+    font-family: Snobel;
+    font-size: 41px;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+.final-game1-text2{
+    font-family: Lora;
+    font-family: 21px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+/* Игра */
+#game{
+    display: none;
+    width: 1200px;
+    height: 600px;
+    border: 2px solid #D60011;
+    margin-left: 110px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+}
+#game-back1{
+    width: 100%;
+    height: 77%;
+    position: absolute;
+    background: url(../media/game/back1.png);
+    background-size: cover;
+    top: 30px;
+    z-index: 1;
+}
+#game-back2{
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    background: url(../media/game/back3.png);
+    background-size: cover;
+    top: 60px;
+    z-index: 2;
+}
+#game-bear {
+    width: 183px;
+    height: 183px;
+    position: absolute;
+    background: url(../media/game/game-bear1.gif);
+    background-size: cover;
+    left: 0;
+    bottom: 90px; 
+    z-index: 5;
+}
+
+.obstacle {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    bottom: 110px;
+    background: url(../media/game/obstacle.png); 
+    background-size: cover;
+    z-index: 3; /* Над медведем */
+}
+
+.obstacle1 {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    bottom: 110px;
+    background: url(../media/game/obstacle1.png);
+    background-size: cover;
+}
+
+.obstacle2 {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    bottom: 105px;
+    background: url(../media/game/obstacle2.png);
+    background-size: cover;
+}
+
+.obstacle3 {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    bottom: 110px;
+    background: url(../media/game/obstacle3.png);
+    background-size: cover;
+}
+
+.obstacle4 {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    bottom: 105px;
+    background: url(../media/game/obstacle4.png);
+    background-size: cover;
+}
+
+.modal {
+    display: none; 
+    position: absolute;
+    z-index: 1000; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 462px;
+    height: 199px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+}
+
+.modal-content {
+    margin: 10px;
+}
+
+#restart-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.game-name{
+    font-family: Pixel;
+    color: #5A5A8E;
+    font-size: 20px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+.mute{
+    position: absolute;
+    z-index: 5;
+    right: 80px;
+    top: 20px;
+}
+.info{
+    position: absolute;
+    z-index: 5;
+    right: 10px;
+    top: 20px;
+}
+.shield{
+    position: absolute;
+    z-index: 5;
+    bottom: 10px;
+    left: 10px;
+}
+.fly{
+    position: absolute;
+    z-index: 5;
+    bottom: 10px;
+    left: 80px;
+}
+.stop{
+    position: absolute;
+    z-index: 5;
+    bottom: 10px;
+    right: 10px;
+}
+
+#progress-bar-container {
+    position: absolute;
+    width: 370px;
+    height: 48px;
+    border: 2px solid #7271AD;
+    background-color: #5A5A8E; 
+    top: 10px; 
+    right: 420px; 
+    border-radius: 30px; 
+    overflow: hidden; 
+    z-index: 5; 
+}
+
+#progress-bar {
+    width: 0%; 
+    height: 100%;
+    background-color: #55D54D; 
+    transition: width 1s linear; 
+}
+
+.countdown {
+    font-family: Pixel, Arial, sans-serif;
+    font-size: 80px;
+    color: #D60011;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100; 
+    display: none; 
+}
+

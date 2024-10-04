@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Игра</title>
+ <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <div class="top-head">
+        <img class="img-top" src="{% static 'media/home/header.png' %}">
+    </div>
+    <div class="home-text">
+        <div class="home-text1">
+            Медведик Тут рядом
+        </div>
+        <div class="home-text2">
+            В "Медведик тут рядом" игроки становятся частью увлекательного путешествия по мифам об аутизме, где каждое задание</br>
+            помогает лучше понять уникальные потребности людей с расстройством аутистического спектра. Игра способствует</br>
+            созданию безопасной и поддерживающей атмосферы для обсуждения важных тем.
+        </div>
+    </div>
+    <div class="game-start">
+        <div class="game-start-text">
+            МЕДВЕДИК тут рядом
+        </div>
+        <div class="game-start-img">
+            <img class="bear-img" src="{% static 'media/home/bear.svg' %}">
+        </div>
+        <div class="game-start-but">
+            <a href="{% url 'game' %}">
+            <button>СТАРТ</button>
+            </a>
+        </div>
+    </div>
+    <div class="footer-home">
+        <img class="footer-img" src="{% static 'media/home/footer.png' %}">
+    </div>
+</body>

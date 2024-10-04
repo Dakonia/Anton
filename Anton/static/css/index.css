@@ -21,7 +21,7 @@ body {
   top: 0;
   width: 700px;
   height: 100%;
-  background: url('../media/back2.jpg') no-repeat center center;
+  background: url('../media/game/back2.jpg') no-repeat center center;
   background-size: cover;
 }
 
@@ -51,7 +51,7 @@ body {
   left: 30px;
   width: 80px;
   height: 80px;
-  background: url('../media/bear.png') no-repeat center center; 
+  background: url('../media/game/bear.png') no-repeat center center; 
   background-size: cover;
 }
 
@@ -93,12 +93,12 @@ body {
 }
 
 .cactus1 {
-  background: url('../media/grib2.png') no-repeat center center; 
+  background: url('../media/game/grib2.png') no-repeat center center; 
   background-size: cover;
 }
 
 .cactus2 {
-  background: url('../media/grib1.png') no-repeat center center; 
+  background: url('../media/game/grib1.png') no-repeat center center; 
   background-size: cover;
 }
 
@@ -116,6 +116,21 @@ body {
 #score { left: 10px; }
 #level { left: 100px; }
 #highScore { right: 10px; }
+
+.coin {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: url('../media/game/coin.png') no-repeat center center;
+  background-size: cover;
+  z-index: 10;
+  animation: coinAnimation 3s linear infinite;
+}
+
+@keyframes coinAnimation {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
 
 #gameOver {
   position: absolute;
@@ -139,7 +154,7 @@ body {
   right: 0;
   width: 80px;
   height: 80px;
-  background: url('../media/ship.png') no-repeat center center;
+  background: url('../media/game/ship.png') no-repeat center center;
   background-size: cover;
 }
 
@@ -147,7 +162,7 @@ body {
   position: absolute;
   width: 50px;
   height: 50px;
-  background: url('../media/fire.png');
+  background: url('../media/game/fire.png');
   background-size: cover;
 }
 
@@ -178,7 +193,7 @@ body {
   left: -100px; 
   width: 100px;
   height: 80px;
-  background: url('../media/spaceship.png');
+  background: url('../media/game/spaceship.png');
   background-size: cover;
   z-index: 999; 
   animation: spaceshipAnimation 10s linear infinite;

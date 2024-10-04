@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Игра</title>
+ <link rel="stylesheet" href="{% static 'css/game.css' %}">
+</head>
+<body>
+    <!-- Блок меню -->
+    <div class="menu-block" id="menu-block">
+       <div class="menu-logo-bear">
+            <img class="img-menu-bear" src="{% static 'media/game/bear-logo.svg' %}">
+       </div>
+       <div class="but-menu-block">
+            <button id="play-button">Играть</button>
+            <button>Управление</button>
+            <button>Галерея</button>
+       </div> 
+       <div class="menu-left-bear">
+            <img class="left-bear-img" src="{% static 'media/game/left-bear.svg' %}">
+       </div>
+    </div>
+
+    <!-- Блок управления -->
+    <div class="menu-control" id="menu-control">
+        <div class="control-text">
+            Управление
+        </div>
+        <div class="central-control">
+            <div class="control-red-but">
+                <button>Пробел</button>
+                <button>Двойной пробел</button>
+                <button>С</button>
+                <button>М</button>
+            </div>
+            <div class="contol-red-text">
+                <div>Прыжок</div>
+                <div>Двойной прыжок</div>
+                <div>Щит</div>
+                <div>Полет</div>
+            </div>
+        </div>
+        <div class="control-boot-but">
+            <button id="exit-button">Выход</button>
+            <button id="start-button">Начать</button>
+        </div>
+    </div>
+
+    <!-- Старт уровня -->
+    <div class="start-windows" id="start-windows">
+        <div class="start-windows-img">
+            <img src="{% static 'media/home/bear.svg' %}">
+        </div>
+        <div class="start-windows-modal">
+            <div class="start-windows-modal-text1">
+                Уровень 1
+            </div>
+            <div class="start-windows-modal-text2">
+                гончарная</br>
+                 мастерская
+            </div>
+        </div>
+    </div>
+    <!-- Игра -->
+    <div id="game">
+        <div id="game-back1" class="game-back-img1"></div>
+        <div id="game-back2" class="game-back-img2"></div>
+        <div id="game-bear" class="bear-game"></div>
+        <div id="obstacles-container"></div>
+        <div id="game-over-modal" class="modal">
+            <div class="modal-content">
+                <h2>Медведик упал</h2>
+                <button id="restart-button">Попробовать снова</button>
+            </div>
+        </div>
+        <div id="game-name" class="game-name">
+            Гончарная </br> мастерская
+        </div>
+        <div id="mute" class="mute">
+            <img src="{% static 'media/game/mute.svg' %}">
+        </div>
+        <div id="info" class="info">
+            <img src="{% static 'media/game/info.svg' %}">
+        </div>
+        <div id="shield" class="shield">
+            <img src="{% static 'media/game/shield.svg' %}">
+        </div>
+        <div id="fly" class="fly">
+            <img src="{% static 'media/game/fly.svg' %}">
+        </div>
+        <div id="stop" class="stop">
+            <img src="{% static 'media/game/stop.svg' %}">
+        </div>
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        <div id="countdown" class="countdown"></div>
+
+    </div>
+    <script src="{% static 'js/game_proc.js' %}"></script>
+    <!-- Прохождение игры -->
+
+    <div class="end-game" id="end-game">
+        <div class="first-question">
+            <div class="first-question-text1">
+                МЕДВЕДИК:
+            </div>
+            <div class="first-question-text2">
+                Наша первая локация – творческая мастерская.</br>
+                 Искусство — это отличный способ выразить свои </br>
+                 чувства и мысли, особенно для людей с аутизмом. </br>
+                 Как думаешь, это миф или факт?
+            </div>
+        </div>
+        <div class="first-question-but">
+            <button id="myth-button">МИФ</button>
+            <button id="fact-button">ФАКТ</button>
+        </div>
+        
+        <div class="quest-bear">
+            <img src="{% static 'media/game/quest-bear.svg' %}">
+        </div>
+    </div>
+    <div class="true-qwest" id="true-qwest">
+        <div class="true-qwest-mod">
+            <div class="true-qwest-mod-text1">
+                МЕДВЕДИК:
+            </div>
+            <div class="true-qwest-mod-text2">
+                Да, все верно
+            </div>
+        </div>
+        <div class="true-qwest-img">
+            <img src="../static/media/game/true-bear.svg">
+        </div>
+    </div>
+    <div class="false-qwest" id="false-qwest">
+        <div class="true-qwest-mod">
+            <div class="true-qwest-mod-text1">
+                МЕДВЕДИК:
+            </div>
+            <div class="true-qwest-mod-text2">
+                Не верно, это правда
+            </div>
+        </div>
+        <div class="false-qwest-img">
+            <img src="../static/media/game/false-bear.svg">
+        </div>
+    </div>
+    <div class="final-game1" id="final-game1">
+        <div class="final-game1-frame">
+            <div class="final-game1-text1">
+                МЕДВЕДИК:
+            </div>
+            <div class="final-game1-text2">
+                Наша первая локация – творческая </br>
+                мастерская, и она не простая, а для</br>
+                людей с РАС. Пойдем поговорим с ними.
+            </div>
+        </div>
+
+    </div>
+    <script src="{% static 'js/game.js' %}"></script>
+</body>
+</html>
