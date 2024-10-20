@@ -10,10 +10,15 @@
     font-family: Snobel;
     src: url(../font/Shnobel-Regular.ttf);
 }
+@font-face {
+    font-family: Anton;
+    src: url(../font/antonnew.otf);
+}
 
 body{
     margin: 0;
     padding: 0;
+    position: relative;
 }
 .top-head{
     width: 100%;
@@ -45,36 +50,78 @@ body{
     height: 600px;
     border: 2px solid #D60011;
     position: relative;
+    overflow: hidden;
 }
 .game-start-text{
-    font-family: Snobel;
-    font-size: 70px;
+    font-family: Anton;
+    font-size: 60px;
     text-align: center;
-    margin-top: 150px;
+    margin-top: 80px;
+}
+.text-red{
+    color: #D60011;
 }
 .game-start-img{
     margin-top: 35px;
     position: absolute;
-    align-items: center;
-    margin-left: 440px;
+    left: 510px;  
+}
+.game-start-img2{
+    position: absolute;
+    left: 0;
+    bottom: 150px;
+}
+.game-start-img3{
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
 }
 .game-start-but{
     position: absolute;
-    margin-left: 460px;
-    top: 483px;
+    left: 470px;
+    top: 403px;
 }
 .game-start-but a button{
     width: 228px;
     height: 58px;
     border-radius: 10px;
     background-color: #D60011;
-    border: none;
+    border: 2px solid black;
     font-family: Snobel;
     font-size: 24px;
     color: white;
     cursor: pointer;
 }
+.cat{
+    position: absolute;
+    left: 40px;
+    bottom: 440px;
+}
+.cat-img{
+    width: 250px;
+}
+.sled{
+    position: absolute;
+    left: 350px;
+    bottom: 450px;
+}
+.sled-img{
+    width: 650px;
+}
+.text-img{
+    position: absolute;
+    right: 20px;
+    bottom: 440px;
+}
+.cap{
+    position: absolute;
+    right: 0;
+    bottom: 1000px;
+}
+.cap-img{
+    width: 100px;
+}
 .footer-home img{
-    margin-top: 100px;
+    margin-top: 300px;
     width: 100%;
 }

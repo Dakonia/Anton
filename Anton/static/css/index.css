@@ -233,3 +233,145 @@ body {
 #gameOver button:hover {
   background-color: #cc0000;
 }
+
+
+/* Для портретной ориентации на экране 414x896 (iPhone 12) */
+@media only screen and (max-width: 414px) and (orientation: portrait) {
+  body {
+      transform: rotate(90deg); /* Поворот на 90 градусов */
+      transform-origin: center center;
+      width: 896px; /* Используем высоту экрана как ширину */
+      height: 414px; /* Используем ширину экрана как высоту */
+      overflow: hidden; /* Отключаем прокрутку */
+  }
+
+  /* .menu-block {
+      width: 896px; 
+      height: 414px; 
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+  } */
+
+  .menu-block-text {
+      font-size: 28px; /* Подстроим текст */
+      top: 10px;
+      left: 10px;
+  }
+
+  .img-menu-bear {
+      width: 150px; /* Подстраиваем размеры медведя */
+      height: auto;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+  }
+
+  .but-menu-block {
+      position: absolute;
+      bottom: 20px; /* Разместим кнопки ближе к нижней части */
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+  }
+
+  .but-menu-block button {
+      width: 140px;
+      height: 50px;
+      font-size: 16px;
+  }
+
+  .menu-slider {
+      width: 300px;
+      height: 200px;
+      bottom: 0px;
+  }
+
+  .slide {
+      width: 130px;
+      height: 100px;
+  }
+
+  .slide-img {
+      width: 100px;
+      height: 80px;
+  }
+
+  .text-slide {
+      font-size: 12px;
+  }
+
+  .up-arrow, .down-arrow {
+      margin-left: 0;
+  }
+}
+
+/* Для ландшафтной ориентации (414x896 в горизонтальном виде) */
+@media only screen and (max-width: 896px) and (orientation: landscape) {
+  body {
+      transform: none; /* Без поворота */
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+  }
+
+  .menu-block {
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+  }
+
+  .menu-block-text {
+      font-size: 40px;
+  }
+
+  .img-menu-bear {
+      width: 200px;
+      height: auto;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+  }
+
+  .but-menu-block {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+  }
+
+  .but-menu-block button {
+      width: 150px;
+      height: 60px;
+      font-size: 18px;
+  }
+}
+
+/* Общие стили для мобильных устройств */
+@media only screen and (max-width: 896px) {
+  .menu-block {
+      border: none;
+      box-sizing: border-box;
+  }
+  
+  .menu-logo-bear {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+  }
+}

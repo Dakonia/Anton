@@ -4,75 +4,227 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
  <title>Игра</title>
  <link rel="stylesheet" href="{% static 'css/game.css' %}">
 </head>
 <body>
     <!-- Блок меню -->
+    <div class="rotate-device">Пожалуйста, поверните устройство для игры</div>
     <div class="menu-block" id="menu-block">
+        <div class="menu-block-text">
+            МЕДВ<span class="text-red">Е</span>ДИК тут ряд<span class="text-red">о</span>м
+        </div>
+
        <div class="menu-logo-bear">
-            <img class="img-menu-bear" src="{% static 'media/game/bear-logo.svg' %}">
+            <img class="img-menu-bear" src="../static/media/game/bear-logo.svg">
+       </div>
+       <div class="menu-block-berar-qwerst">
+            <img class="menu-block-berar-qwerst1" src="../static/media/game/games.svg">
        </div>
        <div class="but-menu-block">
-            <button id="play-button">Играть</button>
-            <button>Управление</button>
-            <button>Галерея</button>
+            <button id="galary-but">Галерея</button>
+            <button id="play-button" class="game-but">Играть</button>
+            <button id="control-play">Управление</button>
        </div> 
-       <div class="menu-left-bear">
-            <img class="left-bear-img" src="{% static 'media/game/left-bear.svg' %}">
-       </div>
+       <div class="card-slider">
+        <div class="up-arrow">
+            <img class="up-arrow-img" src="../static/media/game/arow-top.svg" onclick="moveSlide('up')">
+        </div>
+        <div class="menu-slider">
+            <div class="slides-container">
+                <div class="slide">
+                    <div class="slide-img">
+                        <img class="slide-img-img" src="../static/media/game/qw.svg">
+                    </div>
+                    <div class="text-slide">гончарная <br> мастерская</div>
+                </div>
+                <div class="slide">
+                    <div class="slide-img">
+                        <img class="slide-img-img" src="../static/media/game/qw.svg">
+                    </div>
+                    <div class="text-slide">гончарная <br> мастерская</div>
+                </div>
+                <div class="slide">
+                    <div class="slide-img">
+                        <img class="slide-img-img" src="../static/media/game/qw.svg">
+                    </div>
+                    <div class="text-slide">гончарная <br> мастерская</div>
+                </div>
+            </div>
+        </div>
+        <div class="down-arrow">
+            <img class="down-arrow-img" src="../static/media/game/arow-boot.svg" onclick="moveSlide('down')">
+        </div>
+    </div>
+    
+    <script src="../static/js/slide.js"></script>
+    
     </div>
 
     <!-- Блок управления -->
     <div class="menu-control" id="menu-control">
+        <div class="control-block">
         <div class="control-text">
-            Управление
+            Упр<span class="text-red">а</span>вление
         </div>
         <div class="central-control">
-            <div class="control-red-but">
-                <button>Пробел</button>
-                <button>Двойной пробел</button>
-                <button>С</button>
-                <button>М</button>
+            <div class="left-cont">
+                <div class="text-control">прыжок</div>
+                <div class="text-control">двойной прыжок</div>
+                <div class="text-control">щит</div>
+                <div class="text-control">полет</div>
             </div>
-            <div class="contol-red-text">
-                <div>Прыжок</div>
-                <div>Двойной прыжок</div>
-                <div>Щит</div>
-                <div>Полет</div>
+            <div class="mid-cont">
+                <img class="line-img" src="../static/media/game/line.svg">
+                <img class="line-img" src="../static/media/game/line.svg">
+                <img class="line-img" src="../static/media/game/line.svg">
+                <img class="line-img" src="../static/media/game/line.svg">
+            </div>
+            <div  class="right-cont">
+                <div class="text-control2">пробел</div>
+                <div class="text-control2">двойной пробел</div>
+                <div class="text-control2">Q</div>
+                <div class="text-control2">W</div>
             </div>
         </div>
         <div class="control-boot-but">
-            <button id="exit-button">Выход</button>
-            <button id="start-button">Начать</button>
+            <button id="exit-button" class="exit-button">выйти</button>
+            <button id="start-button">Играть</button>
+        </div>
         </div>
     </div>
 
+<!-- Управление меню     -->
+    <div id="contol-menu" class="contol-menu">
+        <div id="back-game" class="back-game"-text>
+            <img class="back-img" src="../static/media/game/back.svg">
+            <div class="back-text">
+                назад
+            </div>
+        </div>
+        <div class="control-menu-text">
+            управление
+        </div>
+        <div class="central-control1">
+            <div class="left-cont1">
+                <div class="text-control1">прыжок</div>
+                <div class="text-control1">двойной прыжок</div>
+                <div class="text-control1">щит</div>
+                <div class="text-control1">полет</div>
+            </div>
+            <div class="mid-cont1">
+                <img class="line-img1" src="../static/media/game/line.svg">
+                <img class="line-img1" src="../static/media/game/line.svg">
+                <img class="line-img1" src="../static/media/game/line.svg">
+                <img class="line-img1" src="../static/media/game/line.svg">
+            </div>
+            <div  class="right-cont1">
+                <div class="text-control21">пробел</div>
+                <div class="text-control21">двойной пробел</div>
+                <div class="text-control21">Q</div>
+                <div class="text-control21">W</div>
+            </div>
+            </div>
+            <div class="cont-panter">
+                <img class="panter" src="../static/media/game/panter.svg">
+            </div>
+            <div class="cont-texts">
+                <img class="text-img" src="../static/media/game/text-cont.svg">
+            </div>
+            <div class="start-button-cont">
+                <button id="start-button-cor">Играть</button>
+            </div>
+        </div>
+<!-- Галерея -->
+<div id="galary-menu" class="galary-menu">
+    <div id="back-games" class="back-game-text">
+        <img class="back-img" src="../static/media/game/back.svg">
+        <div class="back-text">назад</div>
+    </div>
+    <div class="up-arrow1">
+        <img class="up-arrow-img1" src="../static/media/game/arow-top.svg" onclick="moveGallerySlide('left')">
+    </div>
+    <div class="control-menu-text1">галерея</div>
+    <div class="galry-cont">
+        <div class="slide-gal slide" data-index="0">
+            <div class="slide-gal-img">
+                <img class="slide-img-gal" src="../static/media/game/qw.svg">
+            </div>
+            <div class="slide-gal-text">гончарная </br> мастерская</div>
+        </div>
+        <div class="slide-gal slide" data-index="1">
+            <div class="slide-gal-img">
+                <img class="slide-img-gal1" src="../static/media/game/slide.svg">
+            </div>
+            <div class="slide-gal-text">гончарная </br> мастерская</div>
+        </div>
+        <div class="slide-gal slide" data-index="2">
+            <div class="slide-gal-img">
+                <img class="slide-img-gal" src="../static/media/game/qw.svg">
+            </div>
+            <div class="slide-gal-text">гончарная </br> мастерская</div>
+        </div>
+    </div>
+    <div class="down-arrow1">
+        <img class="down-arrow-img1" src="../static/media/game/arow-boot.svg" onclick="moveGallerySlide('right')">
+    </div>
+    <script src="../static/js/slide_gal.js"></script>
+</div>
+
+        
     <!-- Старт уровня -->
     <div class="start-windows" id="start-windows">
-        <div class="start-windows-img">
-            <img src="{% static 'media/home/bear.svg' %}">
+        <div class="start-text">
+            гончарная м<span class="text-red">а</span>стерская
         </div>
-        <div class="start-windows-modal">
-            <div class="start-windows-modal-text1">
+        <div class="level-num">
+            <div class="text-level">
                 Уровень 1
-            </div>
-            <div class="start-windows-modal-text2">
-                гончарная</br>
-                 мастерская
             </div>
         </div>
     </div>
+
+    <!-- Конец уровня -->
+
+    <div class="end-windows" id="end-windows">
+        <div class="start-text">
+            гончарная м<span class="text-red">а</span>стерская
+        </div>
+        <div class="level-num">
+            <div class="text-level1">
+                Уровень </br>
+                пройден
+            </div>
+        </div>
+    </div>
+
     <!-- Игра -->
     <div id="game">
+        <audio id="background-music" src="../static/media/sounds/fon.mp3" loop></audio>
+        <audio id="jump-sound" src="../static/media/sounds/jump1.mp4"></audio>
+        <audio id="crash-jump" src="../static/media/sounds/crash1.mp4"></audio>
         <div id="game-back1" class="game-back-img1"></div>
         <div id="game-back2" class="game-back-img2"></div>
         <div id="game-bear" class="bear-game"></div>
         <div id="obstacles-container"></div>
+        <div id="crash-bear" class="crash-bear"></div>
         <div id="game-over-modal" class="modal">
             <div class="modal-content">
-                <h2>Медведик упал</h2>
-                <button id="restart-button">Попробовать снова</button>
+                <div class="crah-img">
+                    <img class="img-crash" src="../static/media/game/crash.svg">
+                </div>
+                <div class="over-text1">
+                    вы потерпели неудачу
+                </div>
+                <div class="over-text2">
+                    Очень жаль, впереди тебя ждала награда </br>
+                    от Медведика
+                </div>
+                <div class="over-but">
+                    <button id="exit-button-game">Выход</button>
+                    <button id="restart-button" class="restart-button">Попробовать снова</button>
+                </div>
             </div>
         </div>
         <div id="game-name" class="game-name">
@@ -80,6 +232,9 @@
         </div>
         <div id="mute" class="mute">
             <img src="{% static 'media/game/mute.svg' %}">
+        </div>
+        <div id="unmute" class="unmute">
+            <img src="../static/media/game/unmute.svg">
         </div>
         <div id="info" class="info">
             <img src="{% static 'media/game/info.svg' %}">
@@ -129,11 +284,12 @@
                 МЕДВЕДИК:
             </div>
             <div class="true-qwest-mod-text2">
-                Да, все верно
+                Да верно, ты молодец
+                <img class="true-qwest-mod-text2-img" src="../static/media/game/like.svg">
             </div>
         </div>
         <div class="true-qwest-img">
-            <img src="../static/media/game/true-bear.svg">
+            <img src="../static/media/game/bear-logo.svg">
         </div>
     </div>
     <div class="false-qwest" id="false-qwest">
@@ -142,25 +298,97 @@
                 МЕДВЕДИК:
             </div>
             <div class="true-qwest-mod-text2">
-                Не верно, это правда
+                Теперь ты знаешь </br>
+                правильный ответ
+                <img class="true-qwest-mod-text2-img" src="../static/media/game/dislike.svg">
             </div>
         </div>
         <div class="false-qwest-img">
-            <img src="../static/media/game/false-bear.svg">
+            <img src="../static/media/game/bear-logo.svg">
         </div>
     </div>
     <div class="final-game1" id="final-game1">
-        <div class="final-game1-frame">
-            <div class="final-game1-text1">
-                МЕДВЕДИК:
-            </div>
-            <div class="final-game1-text2">
-                Наша первая локация – творческая </br>
-                мастерская, и она не простая, а для</br>
-                людей с РАС. Пойдем поговорим с ними.
+        <video class="video-kat" id="final-video" src="../static/media/game/final.mp4" controls></video>
+    </div>
+    <!-- Промо след игры  -->
+    <div id="promo-next" class="promo-next">
+        <div class="promo-next-text">
+            Концертный зал
+        </div>
+        <div class="promo">
+            <img class="promo-img" src="../static/media/game/slide.svg">
+            <div class="promo-text">
+                Концертный </br>
+                зал
             </div>
         </div>
-
+        <div class="dog">
+            <img src="../static/media/game/dog.svg">
+        </div>
+        <div class="level-img">
+            <div class="level-img-text">
+            уровень 2 </br>
+            скоро
+            </div>
+        </div>
+        <div class="promo-img-text">
+            <img src="../static/media/game/text-promo.svg">
+        </div>
+        <div class="promo-bear">
+            <img src="../static/media/game/bear-promo.svg">
+        </div>
+        
+    </div>
+    <!-- Финал -->
+    <div id="game-end" class="game-end">
+        <div class="end-text">
+            игра окончена
+        </div>
+        <div class="end-text2">
+            Поделись с друзьями, распространи инфу о РАС </br>
+            и станешь другом фонда и медведика
+        </div>
+        <div class="end-text3">
+            ты – кмс по фактам
+        </div>
+        <div class="end-frame">
+            <img src="../static/media/game/text-end.svg">
+            <img src="../static/media/game/smile-end.svg">
+        </div>
+        <div class="end-but">
+            <button id="restart" class="white-but">Пройти заново</button>
+            <button class="red-but">Поделиться</button>
+        </div>
+        <!-- <div class="card-slider">
+            <div class="up-arrow">
+                <img class="up-arrow-img" src="../static/media/game/arow-top.svg" onclick="moveSlide('up')">
+            </div>
+            <div class="menu-slider">
+                <div class="slides-container">
+                    <div class="slide">
+                        <div class="slide-img">
+                            <img class="slide-img-img" src="../static/media/game/qw.svg">
+                        </div>
+                        <div class="text-slide">гончарная <br> мастерская</div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-img">
+                            <img class="slide-img-img" src="../static/media/game/qw.svg">
+                        </div>
+                        <div class="text-slide">гончарная <br> мастерская</div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-img">
+                            <img class="slide-img-img" src="../static/media/game/qw.svg">
+                        </div>
+                        <div class="text-slide">гончарная <br> мастерская</div>
+                    </div>
+                </div>
+            </div>
+            <div class="down-arrow">
+                <img class="down-arrow-img" src="../static/media/game/arow-boot.svg" onclick="moveSlide('down')">
+            </div>
+        </div> -->
     </div>
     <script src="{% static 'js/game.js' %}"></script>
 </body>
