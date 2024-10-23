@@ -214,3 +214,6 @@ document.addEventListener("DOMContentLoaded", () => {
     hideAllEndGameBlocks();
     menuBlock.style.display = 'block';
 });
+
+
+

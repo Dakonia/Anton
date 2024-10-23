@@ -4,7 +4,7 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+ <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
  <title>Игра</title>
  <link rel="stylesheet" href="{% static 'css/game.css' %}">
 </head>
@@ -34,22 +34,22 @@
         <div class="menu-slider">
             <div class="slides-container">
                 <div class="slide">
-                    <div class="slide-img">
-                        <img class="slide-img-img" src="../static/media/game/qw.svg">
-                    </div>
-                    <div class="text-slide">гончарная <br> мастерская</div>
+                        <div class="slide-img1">
+                            <img class="slide-img-img1" src="../static/media/game/rec1.svg">
+                        </div>
+                        <div class="text-slide1">гончарная <br> мастерская</div>
                 </div>
                 <div class="slide">
                     <div class="slide-img">
                         <img class="slide-img-img" src="../static/media/game/qw.svg">
                     </div>
-                    <div class="text-slide">гончарная <br> мастерская</div>
+                    <div class="text-slide">концертный <br> зал</div>
                 </div>
                 <div class="slide">
                     <div class="slide-img">
                         <img class="slide-img-img" src="../static/media/game/qw.svg">
                     </div>
-                    <div class="text-slide">гончарная <br> мастерская</div>
+                    <div class="text-slide">увлекательный <br> марс</div>
                 </div>
             </div>
         </div>
@@ -147,19 +147,19 @@
     </div>
     <div class="control-menu-text1">галерея</div>
     <div class="galry-cont">
-        <div class="slide-gal slide" data-index="0">
+        <div class="slide-gal" style="transform: rotate(-20deg); margin-top: 30px; margin-right: 30px;">
             <div class="slide-gal-img">
                 <img class="slide-img-gal" src="../static/media/game/qw.svg">
             </div>
             <div class="slide-gal-text">гончарная </br> мастерская</div>
         </div>
-        <div class="slide-gal slide" data-index="1">
-            <div class="slide-gal-img">
-                <img class="slide-img-gal1" src="../static/media/game/slide.svg">
+        <div class="slide-gal">
+            <div class="slide-gal-img" style="border: none;">
+                <img class="slide-img-gal1" src="../static/media/game/slide.svg" style="width: 235px; height: 180px; margin: 0;" >
             </div>
             <div class="slide-gal-text">гончарная </br> мастерская</div>
         </div>
-        <div class="slide-gal slide" data-index="2">
+        <div class="slide-gal" style="transform: rotate(20deg); margin-top: 30px; margin-left: 30px;">
             <div class="slide-gal-img">
                 <img class="slide-img-gal" src="../static/media/game/qw.svg">
             </div>
@@ -169,10 +169,8 @@
     <div class="down-arrow1">
         <img class="down-arrow-img1" src="../static/media/game/arow-boot.svg" onclick="moveGallerySlide('right')">
     </div>
-    <script src="../static/js/slide_gal.js"></script>
 </div>
 
-        
     <!-- Старт уровня -->
     <div class="start-windows" id="start-windows">
         <div class="start-text">
@@ -222,7 +220,7 @@
                     от Медведика
                 </div>
                 <div class="over-but">
-                    <button id="exit-button-game">Выход</button>
+                    <button id="exit-button-game" class="exit-button-game">Выход</button>
                     <button id="restart-button" class="restart-button">Попробовать снова</button>
                 </div>
             </div>
@@ -342,7 +340,7 @@
     <!-- Финал -->
     <div id="game-end" class="game-end">
         <div class="end-text">
-            игра окончена
+            игра ок<span class="text-red">о</span>нчена
         </div>
         <div class="end-text2">
             Поделись с друзьями, распространи инфу о РАС </br>
@@ -359,36 +357,37 @@
             <button id="restart" class="white-but">Пройти заново</button>
             <button class="red-but">Поделиться</button>
         </div>
-        <!-- <div class="card-slider">
+        <div class="card-slider">
             <div class="up-arrow">
-                <img class="up-arrow-img" src="../static/media/game/arow-top.svg" onclick="moveSlide('up')">
+                <img class="up-arrow-img" src="../static/media/game/arow-top.svg" onclick="moveSlideEnd('up')">
             </div>
             <div class="menu-slider">
                 <div class="slides-container">
                     <div class="slide">
-                        <div class="slide-img">
-                            <img class="slide-img-img" src="../static/media/game/qw.svg">
+                        <div class="slide-img1">
+                            <img class="slide-img-img1" src="../static/media/game/rec1.svg">
                         </div>
-                        <div class="text-slide">гончарная <br> мастерская</div>
+                        <div class="text-slide1">гончарная <br> мастерская</div>
                     </div>
                     <div class="slide">
                         <div class="slide-img">
                             <img class="slide-img-img" src="../static/media/game/qw.svg">
                         </div>
-                        <div class="text-slide">гончарная <br> мастерская</div>
+                        <div class="text-slide">концертный <br> зал</div>
                     </div>
                     <div class="slide">
                         <div class="slide-img">
                             <img class="slide-img-img" src="../static/media/game/qw.svg">
                         </div>
-                        <div class="text-slide">гончарная <br> мастерская</div>
+                        <div class="text-slide">увлекательный <br> марс</div>
                     </div>
                 </div>
             </div>
             <div class="down-arrow">
-                <img class="down-arrow-img" src="../static/media/game/arow-boot.svg" onclick="moveSlide('down')">
+                <img class="down-arrow-img" src="../static/media/game/arow-boot.svg" onclick="moveSlideEnd('down')">
             </div>
-        </div> -->
+        </div>
+        <script src="../static/js/slide-end.js"></script>
     </div>
     <script src="{% static 'js/game.js' %}"></script>
 </body>

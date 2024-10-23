@@ -1,4 +1,3 @@
-// Объявление переменных
 const gameContainer = document.getElementById("game");
 const bear = document.getElementById("game-bear");
 const obstaclesContainer = document.getElementById("obstacles-container");
@@ -15,20 +14,20 @@ const Unmute = document.getElementById('unmute');
 const crashJump = document.getElementById('crash-jump');
 const stopButton = document.getElementById('stop'); 
 const CrashBear = document.getElementById('crash-bear');
- 
+const isMobile = window.innerWidth <= 890;  
+const exit = document.getElementById('exit-button-game');
+const MainMenu = document.getElementById('menu-block');
 
 
-// let backgroundAnimationFrame;
-// Параметры медведя
 let bearJumping = false;
-let bearBottom = 50;
+let bearBottom = isMobile ? 22 : 50;
 let jumpCount = 0;
-let gravity = -1.5;
-let velocity = 24;
-let doubleJumpVelocity = 19;
+let gravity = isMobile ? -1.5 : -1.5;
+let velocity = isMobile ? 24 : 24;
+let doubleJumpVelocity = isMobile ? 19 : 19;
 let velocityY = 0;
-let singleJumpFallSpeed = -0.2; // медленнее падение для одиночного прыжка
-let doubleJumpFallSpeed = -0.08;
+let singleJumpFallSpeed = isMobile ? -0.1 : -0.2; 
+let doubleJumpFallSpeed = isMobile ? -0.02 : -0.08
 let gameRunning = false;
 let progressBarAnimationFrame = null; 
 let isPaused = false; 
@@ -40,8 +39,6 @@ const obstacleTypes = ["obstacle1", "obstacle2", "obstacle3", "obstacle4", "obst
 document.addEventListener("keydown", function (event) {
     if (event.code === "Space") {
         event.preventDefault();
-
-        // Проверяем, если игра не активна (gameRunning = false), прыжок не выполняется
         if (!gameRunning) {
             return;
         }
@@ -56,10 +53,26 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
+// Обработка касания экрана для прыжка на мобильных устройствах
+document.addEventListener("touchstart", function (event) {
+    event.preventDefault();
+
+    if (!gameRunning) {
+        return;
+    }
+
+    if (!bearJumping) {
+        jumpCount = 1;
+        performJump();
+    } else if (jumpCount === 1) {
+        jumpCount = 2;
+        performDoubleJump();
+    }
+});
 
 // Функция для воспроизведения фоновой музыки
 function playBackgroundMusic() {
-    backgroundMusic.volume = 0.5; // Установка громкости фоновой музыки
+    backgroundMusic.volume = 0.5; 
     backgroundMusic.play();
 }
 
@@ -69,20 +82,20 @@ function crashJumps(){
 }
 
 stopButton.addEventListener("click", function () {
-    isPaused = !isPaused; // Переключаем флаг паузы
+    isPaused = !isPaused; 
 
     if (isPaused) {
         gameRunning = false;
-        backgroundMusic.pause(); // Останавливаем музыку
-        cancelAnimationFrame(progressBarAnimationFrame); // Останавливаем анимацию прогресс-бара
+        backgroundMusic.pause(); 
+        cancelAnimationFrame(progressBarAnimationFrame); 
         resetGameVariables() 
         
     } else {
-        gameRunning = true; // Возобновляем игру
-        backgroundMusic.play(); // Воспроизводим музыку
-        requestAnimationFrame(moveBackground); // Возобновляем движение фона
-        createObstacle(); // Возобновляем создание препятствий
-        fillProgressBar(60000); // Возобновляем прогресс-бар
+        gameRunning = true; 
+        backgroundMusic.play(); 
+        requestAnimationFrame(moveBackground);
+        createObstacle(); 
+        fillProgressBar(60000); 
         setSoundState(loadSoundState());
     }
 });
@@ -90,12 +103,12 @@ stopButton.addEventListener("click", function () {
 // Функция для остановки фоновой музыки
 function stopBackgroundMusic() {
     backgroundMusic.pause();
-    backgroundMusic.currentTime = 0; // Сброс времени воспроизведения
+    backgroundMusic.currentTime = 0; 
 }
-
+// Звук прыжка
 function playJumpSound() {
-    let jumpSoundClone = jumpSound.cloneNode(); // Клонируем звук
-    jumpSoundClone.play(); // Воспроизводим клон
+    let jumpSoundClone = jumpSound.cloneNode(); 
+    jumpSoundClone.play(); 
 }
 function stopJumpSound(){
     backgroundMusic.pause();
@@ -105,7 +118,7 @@ function stopJumpSound(){
 // Функция для выполнения первого прыжка
 function performJump() {
     bearJumping = true;
-    velocityY = velocity;
+    velocityY = isMobile ? 17 : velocity; 
     playJumpSound();
     jumpAnimation();
 }
@@ -113,36 +126,36 @@ function performJump() {
 // Функция для выполнения двойного прыжка
 function performDoubleJump() {
     bearJumping = true;
-    velocityY = doubleJumpVelocity;
+    velocityY = isMobile ? 18 : doubleJumpVelocity; 
     playJumpSound();
     jumpAnimation();
 }
 
-// Анимация прыжка медведя
+// Анимация прыжка медведя 
 function jumpAnimation() {
     if (jumpCount === 2 && velocityY < 0) {
-        velocityY += doubleJumpFallSpeed; // обычная скорость падения для двойного прыжка
+        velocityY += doubleJumpFallSpeed;
     } else if (jumpCount === 1 && velocityY < 0) {
-        velocityY += singleJumpFallSpeed; // медленное падение для одиночного прыжка
+        velocityY += singleJumpFallSpeed;
     } else {
-        velocityY += gravity; // гравитация
+        velocityY += gravity;
     }
-    
+
     bearBottom += velocityY;
 
-    if (bearBottom <= 90) {
-        bearBottom = 90;
+    if (bearBottom <= (isMobile ? 22 : 90)) {
+        bearBottom = isMobile ? 22 : 90;
         bearJumping = false;
         jumpCount = 0;
         velocityY = 0;
     }
     bear.style.bottom = bearBottom + "px";
 
-
     if (bearJumping) {
         requestAnimationFrame(jumpAnimation);
     }
 }
+
 
 // Создание препятствия
 function createObstacle() {
@@ -166,7 +179,7 @@ function createObstacle() {
             clearInterval(obstacleInterval);
             obstaclesContainer.removeChild(obstacle);
         } else {
-            obstacle.style.left = (obstacleLeft - 10) + "px";
+            obstacle.style.left = (obstacleLeft - (isMobile ? 7 : 10)) + "px";
         }
 
         const obstacleHeight = parseInt(window.getComputedStyle(obstacle).getPropertyValue("height"));
@@ -179,7 +192,7 @@ function createObstacle() {
 
 // Проверка на столкновение медведя с препятствием
 function checkCollision(obstacleLeft, obstacleHeight) {
-    if (obstacleLeft < 100 && obstacleLeft > 50 && bearBottom < obstacleHeight + 90) {
+    if (obstacleLeft < (isMobile ? 50 :100) && obstacleLeft > (isMobile ? 25 : 50) && bearBottom < obstacleHeight + (isMobile ? 45 : 90)) {
         if (gameRunning) {
             crashJumps();
             showGameOverModal();
@@ -210,7 +223,7 @@ function showGameOverModal() {
         obstaclesContainer.removeChild(obstaclesContainer.firstChild);
     }
     modal.style.display = "block";
-    cancelAnimationFrame(progressBarAnimationFrame); // Остановить анимацию прогресс-бара при проигрыше
+    cancelAnimationFrame(progressBarAnimationFrame); 
 }
 
 // Обработка нажатия на кнопку "Попробовать снова"
@@ -222,16 +235,28 @@ restartButton.addEventListener("click", function () {
     setSoundState(loadSoundState());
 });
 
+// Обработка нажатия на копку "Выход"
+exit.addEventListener('click', function(){
+    bearStart();
+    modal.style.display = 'none';
+    gameContainer.style.display ='none';
+    MainMenu.style.display ='block';
+    stopBackgroundMusic();
+    gameRunning = false;
+    resetGameVariables();
+});
+
+
 // Инициализация игры — остановка музыки по умолчанию, если состояние звука не "on"
 if (!loadSoundState()) {
     stopBackgroundMusic();
-    Unmute.style.display = 'block'; // Показать кнопку Unmute
-    Mute.style.display = 'none'; // Скрыть кнопку Mute
+    Unmute.style.display = 'block'; 
+    Mute.style.display = 'none';
 }
 
 // Функция сброса переменных игры
 function resetGameVariables() {
-    bearBottom = 90;
+    bearBottom = isMobile ? 22 : 90;
     bearJumping = false;
     jumpCount = 0;
     velocityY = 0;
@@ -254,14 +279,11 @@ function resetPause() {
 
 // Функция для отображения блока завершения игры "end-windows" и "end-game"
 function showEndWindows() {
-    // Отобразить блок end-windows
     document.getElementById("end-windows").style.display = "block";
-
-    // Через 2 секунды скрыть end-windows и показать end-game
     setTimeout(() => {
         document.getElementById("end-windows").style.display = "none"; // Скрыть end-windows
         document.getElementById("end-game").style.display = "block"; // Показать end-game
-    }, 2000); // 2000 миллисекунд = 2 секунды
+    }, 2000); 
 }
 
 // Заполнение полосы прогресса
@@ -278,52 +300,50 @@ function fillProgressBar(duration) {
         if (progress < 1) {
             progressBarAnimationFrame = requestAnimationFrame(updateProgress);
         } else {
-            // Прогресс бар полностью заполнился - игра закончена
-            gameRunning = false; // Остановка игры
             stopBackgroundMusic();
             resetGameVariables();
-            gameContainer.style.display = "none"; // Скрыть блок игры
-
-            // Показать блок end-windows на 2 секунды, а затем end-game
+            gameContainer.style.display = "none"; 
             showEndWindows();
-
             cancelAnimationFrame(progressBarAnimationFrame); 
         }
     }
     progressBarAnimationFrame = requestAnimationFrame(updateProgress);
 }
 
-// Функции для бесконечного фона
-const backgroundWidth = 1200; 
+// Функции для бесконечного фона 
+let backgroundWidth = isMobile ? 736 : 1200; 
+let gameBack1Top = isMobile ? "20px" : "30px"; 
+let gameBack2Top = isMobile ? "40px" : "60px"; 
 
+// Применяем параметры для 1 фона
 gameBack1.style.width = (backgroundWidth + 10) + "px";
-gameBack1.style.height = "77%";
+gameBack1.style.height = isMobile ? "77%" : "77%"; 
 gameBack1.style.position = "absolute";
-gameBack1.style.top = "30px";
-gameBack1.style.left = "0"; 
-gameBack1.style.zIndex = 0; 
+gameBack1.style.top = gameBack1Top;
+gameBack1.style.left = "0";
+gameBack1.style.zIndex = 0;
 
 let gameBack1Clone = gameBack1.cloneNode(true);
-gameBack1Clone.style.left = (backgroundWidth - 1) + "px"; 
-gameBack1Clone.style.zIndex = 1; 
+gameBack1Clone.style.left = (backgroundWidth - 1) + "px";
+gameBack1Clone.style.zIndex = 1;
 gameContainer.appendChild(gameBack1Clone);
 
+// Применяем параметры для 2 фона
 gameBack2.style.width = (backgroundWidth + 10) + "px";
-gameBack2.style.height = "90%"; 
+gameBack2.style.height = isMobile ? "90%" : "90%"; 
 gameBack2.style.position = "absolute";
-gameBack2.style.top = "60px";
-gameBack2.style.left = "0"; 
-gameBack2.style.zIndex = 2; 
+gameBack2.style.top = gameBack2Top;
+gameBack2.style.left = "0";
+gameBack2.style.zIndex = 2;
 
 let gameBack2Clone = gameBack2.cloneNode(true);
-gameBack2Clone.style.left = (backgroundWidth - 1) + "px"; 
-gameBack2Clone.style.zIndex = 2; 
+gameBack2Clone.style.left = (backgroundWidth - 1) + "px";
+gameBack2Clone.style.zIndex = 2;
 gameContainer.appendChild(gameBack2Clone);
 
 // Функция для перемещения фонов
 function moveBackground() {
-    if (!gameRunning) return; 
-
+    if (!gameRunning) return;
     let back1Left = parseInt(window.getComputedStyle(gameBack1).getPropertyValue("left"));
     let back1CloneLeft = parseInt(window.getComputedStyle(gameBack1Clone).getPropertyValue("left"));
     let back2Left = parseInt(window.getComputedStyle(gameBack2).getPropertyValue("left"));
@@ -350,6 +370,7 @@ function moveBackground() {
     requestAnimationFrame(moveBackground);
 }
 
+
 // Функция для начала отсчета перед игрой
 function startCountdown() {
     let count = 3; 
@@ -373,11 +394,11 @@ function startCountdown() {
 // Инициализация игры — установка начального состояния звука
 window.addEventListener('load', () => {
     const soundState = loadSoundState();
-    setSoundState(soundState); // Установим состояние звука при загрузке страницы
+    setSoundState(soundState);
 });
 // Функция для загрузки состояния звука из localStorage
 function loadSoundState() {
-    return localStorage.getItem("soundState") === "on"; // Вернет true, если soundState равен "on"
+    return localStorage.getItem("soundState") === "on"; 
 }
 
 // Функция для сохранения состояния звука в localStorage
@@ -403,14 +424,14 @@ Unmute.addEventListener('click', function () {
     Unmute.style.display = 'none';
     Mute.style.display = 'block';
     playBackgroundMusic();
-    saveSoundState(true); // Сохранить состояние звука как "включено"
+    saveSoundState(true);
 });
 
 Mute.addEventListener('click', function () {
     Mute.style.display = 'none';
     Unmute.style.display = 'block';
     stopBackgroundMusic();
-    saveSoundState(false); // Сохранить состояние звука как "выключено"
+    saveSoundState(false); 
 });
 
 
@@ -418,10 +439,10 @@ Mute.addEventListener('click', function () {
 const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
         if (mutation.attributeName === "style" && gameContainer.style.display === "block") {
-            startCountdown(); // Запуск отсчета
+            startCountdown(); 
         }
     });
 });
 
-// Начать наблюдение за изменениями атрибута "style" в gameContainer
+// Начать наблюдение за изменениями атрибута "style" 
 observer.observe(gameContainer, { attributes: true, attributeFilter: ["style"] });

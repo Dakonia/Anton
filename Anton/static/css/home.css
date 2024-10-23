@@ -125,3 +125,131 @@ body{
     margin-top: 300px;
     width: 100%;
 }
+.top-head-mob{
+    display: none;
+}
+
+@media only screen and (max-width: 796px) {
+    body{
+        margin: 5;
+        padding: 0;
+        position: relative;
+    }
+
+    .top-head-mob{
+        display: block;
+        width: 100%;
+        height: 100%;
+        margin-left: 160px;
+    }
+    .top-head{
+        display: none !important;
+    }
+    .home-text{
+        width: 100%;
+        margin-left: 170px;   
+        margin-top: 30px;
+    }
+    .home-text1{
+        text-align: center;
+        font-size: 25px;
+    }
+    .home-text2{
+        margin-top: 20px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .game-start{
+        margin-top: 50px;
+        margin-left: 20px;
+        width: 280px;
+        height: 400px;
+        border: 1px solid #D60011;
+        position: relative;
+        overflow: hidden;
+    }
+    .game-start-text{
+        font-family: Anton;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 50px;
+    }
+    .text-red{
+        color: #D60011;
+    }
+    .game-start-img{
+        margin-top: 30px;
+        position: absolute;
+        left: 250px;  
+    }
+    .game-start-img2{
+        position: absolute;
+        left: 0;
+        bottom: 50px;
+    }
+    .game-start-img3{
+        position: absolute;
+        bottom: -10px;
+        right: -20px;
+    }
+    .game-start-img3 img{
+        width: 200px;
+    }
+    .game-start-img2 img{
+        width: 200px;
+    }
+    .game-start-img img{
+        width: 100px;
+    }
+    .game-start-but{
+        position: absolute;
+        left: 225px;
+        top: 220px;
+    }
+    .game-start-but a button{
+        width: 158px;
+        height: 48px;
+        border-radius: 10px;
+        background-color: #D60011;
+        border: 2px solid black;
+        font-family: Snobel;
+        font-size: 18px;
+        color: white;
+        cursor: pointer;
+    }
+    .cat{
+        position: absolute;
+        left: 40px;
+        bottom: -200px;
+    }
+    .cat-img{
+        width: 170px;
+    }
+    .sled{
+        position: absolute;
+        left: 250px;
+        bottom: -200px;
+    }
+    .sled-img{
+        width: 200px;
+    }
+    .text-img{
+        position: absolute;
+        right: -270px;
+        bottom: -200px;
+    }
+    .text-img img{
+        width: 200px;
+    }
+    .cap{
+        position: absolute;
+        right: 0;
+        bottom: 1000px;
+    }
+    .cap-img{
+        width: 10px;
+    }
+    .footer-home img{
+        display: none;
+    }
+}    
